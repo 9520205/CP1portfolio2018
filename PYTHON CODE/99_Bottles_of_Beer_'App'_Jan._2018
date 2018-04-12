@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+a = 99
+while a>1:
+    print a, "bottles of beer on the wall,", a, "bottles of beer!", "Take one down, and pass it around, "
+    a -= 1
+    print a, "bottles of beer on the wall!"
+else:
+    print a, "bottle of beer on the wall,", a, "bottle of beer!", "Take one down, and pass it around,", "now there are zero bottles of beer on the wall!"
