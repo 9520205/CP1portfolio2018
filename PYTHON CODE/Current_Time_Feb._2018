@@ -1,0 +1,21 @@
+#!/usr/bin/python
+
+import datetime;
+
+now = datetime.datetime.now()
+userInput = input("Enter your birthdate in YYYY/MM/DD format")
+
+if (len(userInput) == 10):
+        day = userInput[8:10]
+        month = userInput[5:7]
+        year = userInput[0:4]
+        dage = now.day - int(day)
+        mage = now.month - int(month)
+        yage = now.year - int(year)
+        timeDif = (yage*365 + mage*30.4 + dage)
+        endYage = int(timeDif/365)
+        endMage = int((timeDif - endYage*365)-((timeDif - endYage*365)/30.4))/30.4
+        endDage = int(timeDif - endYage*365 - endMage*30.4)
+        print("You are ", endYage, " years, ", endMage, " months, and ", endDage," days old")
+        else :
+            print ("Your input is wrong")
