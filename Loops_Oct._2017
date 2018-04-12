@@ -31,3 +31,13 @@ while (w > 0)  {
   ellipse(width/2,height/2,w,w);  
   w-=20;  
 }
+
+
+
+size(2560,1395);
+for (int x=0; x < 2560; x+=2) {
+    for (int y = 0; y < height; y+=2) {
+     fill(random(255));
+     rect(x,y,2,2);
+    }
+}
