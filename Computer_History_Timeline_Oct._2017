@@ -1,0 +1,82 @@
+void setup() {
+  size(900, 400);
+  background(#52E82B);
+}
+void draw() {
+  background(#52E82B);
+  textSize(18);
+  text("1940", 42, 230);
+  text("1970", 815, 230);
+  textSize(18);
+  // I had to keep the text size and two dates above the drawRef line, otherwise the
+  // font was drastically increased.
+  drawRef();
+  strokeWeight(1);
+  line(100, 225, 100, 110);
+  histEvent(40, 95, 105, 25, "1940-BOMBES (UK)", "This electro-mechanical computer was used \nduring WW2 to decipher German-encrypted \nEnigma messages.", true);
+  line(122, 330, 122, 225);
+  histEvent(62, 328, 105, 25, "1941-Z3 (Germany)", "This was the third generation of this \ncomputer, invented by Konrad Zuse, and \nwas one of the first programmable digital \ncomputer.", true);
+  line(144, 225, 144, 125);
+  histEvent(108, 117, 145, 25, "1942-Atanasoff-Berry (US)", "This was the first fully-electronic. The \npunch card reader was unreliable, though, \nand the computer was discontinued.", true);
+  line(188, 305, 188, 225);
+  histEvent(130, 306, 105, 25, "1944-Colossus (UK)", "This was the first digital programmable \ncomputer, able to process 5,000 \ncharacters/second.", true);
+  line(210, 225, 210, 145);
+  histEvent(153, 139, 88, 25, "1945-ENIAC (US)", "This was the first programmable (and \nprobably successful) American computer. It \nwas much better than Colossus.", true);
+  line(298, 360, 298, 225);
+  histEvent(62, 350, 225, 25, "1949-Manchester Mk. 1 and EDSAC (UK)", "Manchester Mk. 1 was the prototype for the \nworld's first commercial general-purpose \ncomputer, and It was the first to use index \nregisters. EDSAC was one of the first usefully \noperational digital stored-program computers.", true);
+  line(342, 225, 342, 165);
+  histEvent(218, 161, 162, 25, "1951-Ferranti Mk. 1, UNIVAC", "(UK): Ferranti Mk. 1 had a larger storage \ncapacity. See Manchester Mk. 1 for more \ninfo. (US): UNIVAC was the first mass- \nproduced computer.", true);
+  line(408, 355, 408, 225);
+  histEvent(348, 350, 100, 25, "1954-IBM 650 (US)", "This was a smaller, more popular and more \naffordable version of the UNIVAC.", true);
+  line(440, 150, 440, 225);
+  histEvent(317, 139, 103, 25, "1955-Transistors!!!", "The implementation of transistors in \ncomputers allowed them to be more reliable, \nmore compact, more efficient, and cost less.", true);
+  histEvent(462, 306, 112, 25, "1956-Harwell CADET", "This was the world's first fully- \ntransistorized computer, using 400 of \nthem.", true);
+  line(462, 330, 462, 225);
+  histEvent(417, 328, 162, 25, "1956-IBM 350 RAMAC (UNK.)", "This was the first computer to ever use \nmagnetic disks for storage, using 24-inch \nmetal discs with 200 total tracks. It stored a \nmaximum of 5 megabytes.", true);
+  line(558, 140, 558, 225);
+  histEvent(500, 139, 135, 25, "1959-Integrated Circuits", "Robert Noyce invented the first practical IC \nin 1959. An IC is a combination of multiple \ntransistors in a single package.", true);
+  line(601, 161, 601, 225);
+  histEvent(601, 161, 175, 25, "1962-Atlas Supercomputer (UK)", "This was one of the world's first \nsupercomputers. That's really all there was.", true);
+  line(645, 260, 645, 225);
+  histEvent(645, 247, 107, 25, "1964-CDC 660 (UK)", "This computer is considered to be the \nworld's first supercomputer, outperforming \nit's predecessor by a factor of three.", true);
+}
+void drawRef() {
+  textSize(45);
+  fill(0);
+  text("Computer History Timeline", 150, 60);
+  textSize(12);
+  text("A partial history of the first electronic computers", 300, 100);
+  strokeWeight(4);
+  line(100, 225, 800, 225);
+  line(320, 215, 320, 235);
+  line(579, 215, 579, 235);
+  line(100, 215, 100, 235);
+  line(800, 215, 800, 235);
+  fill(#4BB8FF);
+  strokeWeight(1);
+  rect(610, 280, 280, 110);
+}
+void histEvent(int x, int y, int w, int h, String title, String desc, boolean top) {
+  if (top) {
+    strokeWeight(1);
+    fill(#4BB8FF);
+    rect(x, y, w+20, h-4);
+    fill(0);
+    strokeWeight(1);
+    text(title, x+5, y+15);
+  }
+  if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h) {
+    if (top) {
+      fill(#4BB8FF);
+      strokeWeight(1);
+      rect(610, 280, 280, 110);
+      fill(0);
+      text(desc, 627, 307);
+      fill(#9EEBFF);
+      rect(x, y, w+20, h-4);
+      fill(0);
+      strokeWeight(1);
+      text(title, x+5, y+15);
+    }
+  }
+}
