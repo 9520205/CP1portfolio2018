@@ -1,0 +1,10 @@
+import random
+num = random.randrange(1,100)
+
+test = input('Guess a number between 1 and 100:')
+if (num > test):
+    print("sorry, that's too high. Choose a different number")
+elif (num < test):
+    print("sorry, that's too low. Choose a different number")
+else:
+    print("that's correct!")
