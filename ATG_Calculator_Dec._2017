@@ -1,0 +1,325 @@
+ATG CALCULATOR TAB:
+
+Button[] numButtons = new Button[10];
+Button[] opButtons = new Button[15];
+String l, r, d, c;
+float ans;
+char o;
+boolean left, eq, dec;
+
+void setup() {
+  size(350, 450);
+  background(150);
+  ans = 0.0;
+  l = "0";
+  r = "0";
+  d = "0.0";
+  c = "0.0";
+  o = ' ';
+  left = true;
+  eq = false;
+  dec = false;
+
+  numButtons[0] = new Button(125, 375, 50, 50).asNumber(0);
+  numButtons[1] = new Button(75, 325, 50, 50).asNumber(1);
+  numButtons[2] = new Button(125, 325, 50, 50).asNumber(2);
+  numButtons[3] = new Button(175, 325, 50, 50).asNumber(3);
+  numButtons[4] = new Button(75, 275, 50, 50).asNumber(4);
+  numButtons[5] = new Button(125, 275, 50, 50).asNumber(5);
+  numButtons[6] = new Button(175, 275, 50, 50).asNumber(6);
+  numButtons[7] = new Button(75, 225, 50, 50).asNumber(7);
+  numButtons[8] = new Button(125, 225, 50, 50).asNumber(8);
+  numButtons[9] = new Button(175, 225, 50, 50).asNumber(9);
+
+  opButtons[0] = new Button(275, 275, 50, 50).asOperator('/');
+  opButtons[1] = new Button(275, 225, 50, 50).asOperator('x');
+  opButtons[2] = new Button(225, 275, 50, 50).asOperator('-');
+  opButtons[3] = new Button(225, 225, 50, 50).asOperator('+');
+  opButtons[4] = new Button(225, 325, 100, 50).asOperator('c');
+  opButtons[5] = new Button(225, 375, 100, 50).asOperator('=');
+  opButtons[6] = new Button(175, 375, 50, 50).asOperator('p');
+  opButtons[7] = new Button(75, 375, 50, 50).asOperator('.');
+  opButtons[8] = new Button(25, 225, 50, 50).asOperator('u');
+  opButtons[9] = new Button(25, 275, 50, 50).asOperator('q');
+  opButtons[10] = new Button(25, 325, 50, 50).asOperator('a');
+  opButtons[11] = new Button(25, 375, 50, 50).asOperator('w');
+  opButtons[12] = new Button(100, 160, 50, 35).asOperator('S');
+  opButtons[13] = new Button(150, 160, 50, 35).asOperator('C');
+  opButtons[14] = new Button(200, 160, 50, 35).asOperator('T');
+}
+
+void draw() {
+  background(200, 200, 200);
+  fill(255);
+  rect(25, 20, 300, 75, 6);
+  fill(0);
+  text("ATG calculator", 242, 132);
+  for (int i=0; i<numButtons.length; i++) {
+    numButtons[i].display();
+    numButtons[i].hover();
+  }
+
+  for (int i=0; i<opButtons.length; i++) {
+    opButtons[i].display();
+    opButtons[i].hover();
+  }
+  updateDisplay();
+}
+
+void mousePressed() {
+  for (int i=0; i<numButtons.length; i++) {
+    if (numButtons[i].hov && left) {
+      l += numButtons[i].v;
+      numButtons[i].click = true;
+    } else if (numButtons[i].hov && !left) {
+      r += numButtons[i].v;
+      numButtons[i].click = true;
+    }
+  }
+
+  for (int i=0; i<opButtons.length; i++) {
+    if (opButtons[i].hov && opButtons[i].o == '+') {
+      left = false; 
+      o = opButtons[i].o; //button value
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == '-') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == 'x') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == '/') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == 'u') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == 'c') {
+      performClear();
+    } else if (opButtons[i].hov && opButtons[i].o == '=') {
+      eq = true;
+      performCalc();
+    } else if (opButtons[i].hov && opButtons[i].o == 'p') {
+      if (left) {
+        ans = float(l)*-1;
+        l = str((float)ans);
+      } else {
+        ans = float(r)*-1;
+        r = str((float)ans);
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == '.') {
+      if (left) {
+        l += opButtons[i].o;
+      } else {
+        r += opButtons[i].o;
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == 'w') {
+      if (left) {
+        ans = float(l)*.01;
+        l = str((float)ans);
+      } else {
+        ans = float(r)*.01;
+        r = str((float)ans);
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == 'S') {
+      if (left) {
+        ans = sin(radians(float(l)));
+        l = str((float)ans);
+      } else {
+        ans = sin(radians(float(r)));
+        r = str((float)ans);
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == 'C') {
+      if (left) {
+        ans = cos(radians(float(l)));
+        l = str((float)ans);
+      } else {
+        ans = cos(radians(float(r)));
+        r = str((float)ans);
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == 'T') {
+      if (left) {
+        ans = tan(radians(float(l)));
+        l = str((float)ans);
+      } else {
+        ans = tan(radians(float(r)));
+        r = str((float)ans);
+      }
+    } else if (opButtons[i].hov && opButtons[i].o == 'q') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    } else if (opButtons[i].hov && opButtons[i].o == 'a') {
+      left = false;
+      o = opButtons[i].o;
+      r = "";
+    }
+  }
+}
+
+void performClear() {
+  ans = 0.0;
+  l = "0";
+  r = "0";
+  d = "0.0";
+  c = "0.0";
+  o = ' ';
+  left = true;
+  eq = false;
+  dec = false;
+}
+
+void performCalc() {
+  switch(o) {
+  case '+':
+    ans = float(l)+float(r);
+    l = str((float)ans);
+    left = true;
+    break;
+  case '-':
+    ans = float(l)-float(r);
+    l = str((float)ans);
+    left = true;
+    break;
+  case 'x':
+    ans = float(l)*float(r);
+    l = str((float)ans);
+    left = true;
+    break;
+  case '/':
+    ans = float(l)/float(r);
+    l = str((float)ans);
+    left = true;
+    break;
+  case 'u':
+    ans = pow(float(l),float(r));
+    l = str((float)ans);
+    left = true;
+    break;
+  case 'q':
+    ans = sqrt(float(r));
+    r = str((float)ans);
+    left = false;
+    break;
+  case 'a':
+    ans = sqrt(float(r));
+    ans = sqrt(float(r));
+    r = str((float)ans);
+    left = false;
+    break;
+  }
+}
+
+void updateDisplay() {
+  fill(0);
+  if (eq) {
+    textAlign(RIGHT);
+    text("" + (float)ans, 300, 66);
+  } else {
+    if (left) {
+      textAlign(RIGHT);
+      text(l, 300, 66);
+    } else {
+      textAlign(RIGHT);
+      text(r, 300, 66);
+    }
+  }
+  eq = false;
+}
+
+
+
+
+
+
+
+
+
+BUTTON TAB:
+
+class Button {
+  int x, y, w, h, v; //position and dimension of values
+  char o;
+  boolean hov, num, click;
+
+  //constructor
+  Button(int x, int y, int w, int h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    click = false;
+  }
+
+  Button asNumber(int v) {
+    num = true;
+    this.v = v;
+    return this;
+  }
+
+  Button asOperator(char o) {
+    num = false; 
+    this.o = o;
+    return this;
+  }
+
+void display() {
+  fill(30,80,225);
+  if (hov) {
+    fill(50, 150, 255);
+    stroke(0);
+  }
+    rect(x, y, w, h, 6);
+  {
+}
+    stroke(0);
+    fill(0);
+    textSize(20);
+    if (num) {
+      text(v, x+18, y+h-4);
+    } else {
+      if (o == 'n') {
+        text("+/-", x+5, y+h-5);
+      } else if (o == '+') {
+        text("+", x+20, y+h-5);
+      } else if (o == '-') {
+        text("-", x+20, y+h-5);
+      } else if (o == 'x') {
+        text("x", x+18, y+h-5);
+      } else if (o == '/') {
+        text("/", x+18, y+h-10);
+      } else if (o == 'c') {
+        text("C/CE", x+55, y+h-7);
+      } else if (o == '=') {
+        text("ENTER", x+68, y+h-7);
+      } else if (o == 'p') {
+        text("+/-", x+44, y+h-7);
+      } else if (o == '.') {
+        text(".", x+27, y+h-7);
+      } else if (o == 'u') {
+        text("^", x+20, y+h-5);
+      } else if (o == 'w') {
+        text("%", x+20, y+h-6);
+      } else if (o == 'S') {
+        text("sin", x+33, y+h-5);
+      } else if (o == 'C') {
+        text("cos", x+38, y+h-5);
+      } else if (o == 'T') {
+        text("tan", x+36, y+h-5);
+      } else if (o == 'q') {
+        text("√", x+22, y+h-7);
+      } else if (o == 'a') {
+        text("∛", x+22, y+h-7);
+      } else {
+        text(o, x+55, y+h-5);
+      } 
+    }
+  }
+  void hover() {
+    hov = mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+h;
+  }
+}
