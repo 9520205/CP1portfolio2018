@@ -1,0 +1,25 @@
+void setup() {
+  size(500,500);
+  background(255);
+  frameRate(2);
+}
+
+void draw() {
+  background(255);
+  //this draws the head
+  fill(random(210,230),random(175,195),random(80,160));
+  ellipse(width/2,height/2,random(280,380),random(300,400));
+  //this draws the eyes
+  fill(255);
+  ellipse(180,180,random(40,100),random(40,100));
+  ellipse(310,180,random(40,100),random(40,100));
+  fill(0);
+  ellipse(180,180,random(5,50),random(5,50));
+  ellipse(310,180,random(5,50),random(5,50));
+  //this draws the nose
+  fill(230,195,160);
+  triangle(245,random(200,250),225,300,random(250,300),300);
+  //this draws the mouth
+  fill(100,0,0);
+  arc(250,350,random(100,175),random(30,50),-.85,PI+QUARTER_PI, PIE);
+}
