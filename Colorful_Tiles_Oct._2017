@@ -1,0 +1,8 @@
+size(2560,1394);
+for (int x=0; x < 2560; x+=80) {
+    for (int y = 0; y < height; y+=80) {
+     fill(random(255), random(255), random(255));
+     stroke(random(255));
+     rect(x,y,80,80);
+    }
+}
