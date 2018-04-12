@@ -1,0 +1,70 @@
+CCNAME:
+
+#!/usr/bin/python
+
+FirstName = 'Alexander '
+LastName = 'Shepherd'
+Age = '17'
+print(FirstName + LastName, "is", Age)
+
+
+
+
+HELLO PYTHON:
+
+#!/usr/bin/python
+
+print "Hello, Python!"
+
+
+
+
+UPPERCASE:
+
+#!/usr/bin/python
+
+fullName = input('Enter something in lowercase: ')
+word = fullName.upper()
+print('Uppercase: ' + word)
+
+
+
+
+LOWERCASE:
+
+#!/usr/bin/python
+
+fullName = input('Enter something in uppercase: ')
+word = fullName.lower()
+print('Uppercase: ' + word)
+
+
+
+NAME:
+
+#!/usr/bin/python
+
+var1 = 'Alexander'
+print ("var1[0]: ", var1[0:4])
+
+
+
+PIG LATIN:
+
+#!/usr/bin/python
+
+pig = 'ay'
+vowel = 'yay'
+
+Str1 = input('Enter one word to translate to Pig Latin: ')
+word = Str1.lower()
+if(word[0] == 'a' or word[0] == 'e' or word[0] == 'i' or word[0] == 'o' or word[0] == 'u'):
+    new_word = word[0:] + vowel
+else:
+    first = word[0]
+    new_word = word[1:] + first + pig
+print('Your new word: ' + new_word)
+
+
+
+
