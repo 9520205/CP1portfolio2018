@@ -1,0 +1,28 @@
+void setup() {
+  size(400,300);
+  background(255);
+}
+void draw() {
+  background(150,250,150);
+  textSize(24);
+  fill(0,100,0);
+  text("(Why do I type these things?)", 32, 50);
+  textSize(12);
+  button(145,100,100,30,"YraLa");
+  button(145,150,100,30,"OnBonBa");
+  button(145,200,100,30,"ErpyDa");
+}
+
+void button(int x, int y, int w, int h, String text) {
+  //draw button shadow
+  fill(20,20,20,127);
+  noStroke();
+  rect(x+5,y+5,w,h,5);
+  //draw button
+  fill(20,20,200);
+  stroke(0);
+  rect(x,y,w,h,5);
+  //draw button text
+  fill(255);
+  text(text,x+5,y+20);
+}
