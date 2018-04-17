@@ -29,13 +29,14 @@ Here is a simple app i've made that will write out the 99 bottle ssong all the w
 [99 Bottles of Beer 'App'](https://github.com/9520205/CP1portfolio2018/blob/master/PYTHON%20CODE/99_Bottles_of_Beer_'App'_Jan._2018)
 
 
-Here is a program that can guess your current age, down to the month (NOTE: This code actually might not work): [Guess Your Age] (https://github.com/9520205/CP1portfolio2018/blob/master/PYTHON%20CODE/Guess_Your_Age_Feb._2018)
+Here is a program that can guess your current age, down to the month (NOTE: This code actually might not work): 
+[Guess Your Age](https://github.com/9520205/CP1portfolio2018/blob/master/PYTHON%20CODE/Guess_Your_Age_Feb._2018)
 
 
 And finally...
 
 
-Here is a project me and a group of other python people were working on. It's obviously not finished: [SnakeGame] (https://github.com/Cosmaniac/PythonGroupGame/tree/master/SnakeGame)
+Here is a project me and a group of other python people were working on. It's obviously not finished: [SnakeGame](https://github.com/Cosmaniac/PythonGroupGame/tree/master/SnakeGame)
 
 
 
