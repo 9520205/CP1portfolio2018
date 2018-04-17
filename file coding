@@ -1,0 +1,6 @@
+NOTE: This isn't finished!
+
+fo = open("questions.txt," "r+")
+str = fo.read(random(1-11))
+print(str)
+fo.close()
