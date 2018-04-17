@@ -4,3 +4,17 @@ fo = open("questions.txt," "r+")
 str = fo.read(random(1-11))
 print(str)
 fo.close()
+
+
+
+fo = open("questions.txt", "r+")
+str = fo.read(random(1-11))
+
+fo.close()
+
+fo = open("questions.txt", "r+")
+print(fo.read())
+fo.close()
+
+
+fileObject.write(string);
