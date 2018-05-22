@@ -1,0 +1,58 @@
+*THIS IS UNFINISHED
+
+Button[] buttons = new Button[6];
+
+void setup() {
+  size(650,650);
+  background(0,150,0);
+  
+  buttons[0] = new Button(75,140,50,40) .asValue(101);
+  buttons[1] = new Button(135,140,50,40) .asValue(221);
+  buttons[2] = new Button(195,140,50,40) .asValue(331);
+  buttons[3] = new Button(255,140,50,40) .asValue(471);
+  buttons[4] = new Button(315,140,50,40) .asValue(681);
+  buttons[5] = new Button(375,140,50,40) .asValue(102);
+  
+}
+
+void draw() {
+  background(0,150,0);
+  fill(255);
+  rect(36,70,575,537);
+  textSize(22);
+  fill(0);
+  text("Cap. Converter table-reading modern capacitors", 70,42);
+  textSize(15);
+  text("Modern 3-digit value: ", 240,110);
+  text("Actual Capacitance: ", 250,370);
+  //text("   Microfarads- " + int((mouseX-72)/400),70,400);
+  //text("   Nanofarads- " + int((mouseX-72)/100),70,430);
+  //text("   Picofarads- " + int(pConverter(mouseX-72)),70,460);
+  println(pConverter(60.0));
+  println(fConverter(60.0));
+     buttons[0].display();
+     buttons[0].hover();
+     buttons[1].display();
+     buttons[1].hover();
+     buttons[2].display();
+     buttons[2].hover();
+     buttons[3].display();
+     buttons[3].hover();
+     buttons[4].display();
+     buttons[4].hover();
+     buttons[5].display();
+     buttons[5].hover();
+  fill(0);
+  text("101", 87,165);
+  text("221", 146,165);
+}
+
+float pConverter(float val) {
+     val = (val*10)+100;
+     return val;
+}
+
+float fConverter(float val) {
+  val = val * (9.0/5.0) +32;
+  return val;
+}
