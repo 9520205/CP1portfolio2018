@@ -1,0 +1,29 @@
+*THIS IS UNFINISHED, 
+but this section is finished.
+
+class Button {
+  int x,y,w,h,r;
+  boolean hov, num, click;
+  
+  Button(int x, int y, int w, int h, int r) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.r = r;
+    click = false;
+  }
+
+void display() {
+  fill(200);
+  if (hov) {
+    fill(255);
+    stroke(0);
+  }
+    rect(x, y, w, h, 6);
+}
+
+void hover() {
+    hov = mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+h;
+  }
+}
