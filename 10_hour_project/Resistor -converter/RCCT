@@ -1,0 +1,265 @@
+*THIS IS UNFINISHED
+
+Button[] multButtons = new Button[10];
+int a, b, c, d, e, f, g, h, j, k, l, m; 
+float rxVal;
+
+void setup() {
+  size(896, 500);
+  multButtons[0] = new Button(720, 125, 100, 20, 5);
+  multButtons[1] = new Button(720, 155, 100, 20, 5);
+  multButtons[2] = new Button(720, 185, 100, 20, 5);
+  multButtons[3] = new Button(70, 300, 95, 30, 5);
+  multButtons[4] = new Button(179, 300, 95, 30, 5);
+  multButtons[5] = new Button(288, 300, 95, 30, 5);
+  multButtons[6] = new Button(397, 300, 95, 30, 5);
+  multButtons[7] = new Button(506, 300, 95, 30, 5);
+  multButtons[8] = new Button(615, 300, 95, 30, 5);
+  multButtons[9] = new Button(724, 300, 95, 30, 5);
+  rxVal=0;
+}
+
+void draw() {
+  background(0, 150, 0);
+  fill(50, 100, 200);
+  rect(36, 70, 825, 695);
+  textSize(25);
+  fill(0);
+  text("Resistor color-to-value table", 100, 42);
+  drawRef();
+  colorFirst();
+  colorSec();
+  textSize(15);
+  text("physical look: ", 70, 110);
+  text("tolerance: ", 730, 110);
+  text("Actual Resistance: ", 70, 570);
+  text("ohms: " + int(((mouseX-72)*4/3)*rxVal), 70, 400);
+  //text("pixel count " + (mouseX), 200, 400);
+  text("K ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000), 70, 430);
+  text("M ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000000), 70, 460);
+  text("Click any Rx button to start, then drag the bar to find your value", 260, 430);
+  rect(70, 240, mouseX-72, 10);
+  fill(115, 75, 40);
+  rect(310, 120, 170, 80);
+  fill(200);
+  noStroke();
+  rect(110, 155, 200, 5);
+  rect(481, 155, 200, 5);
+  fill(d, e, f);
+  rect(325, 121, 10, 79);
+  fill(g, h, j);
+  rect(348, 121, 10, 79);
+  fill(a, b, c);
+  rect(371, 121, 10, 79);
+  fill(k, l, m);
+  rect(410, 121, 10, 79);
+  stroke(0);
+  multButtons[0].display();
+  multButtons[0].hover();
+  multButtons[1].display();
+  multButtons[1].hover();
+  multButtons[2].display();
+  multButtons[2].hover();
+  multButtons[3].display();
+  multButtons[3].hover();
+  multButtons[4].display();
+  multButtons[4].hover();
+  multButtons[5].display();
+  multButtons[5].hover();
+  multButtons[6].display();
+  multButtons[6].hover();
+  multButtons[7].display();
+  multButtons[7].hover();
+  multButtons[8].display();
+  multButtons[8].hover();
+  multButtons[9].display();
+  multButtons[9].hover();
+  fill(0);
+  text("5%", 760, 140);
+  text("10%", 755, 170);
+  text("20%", 755, 200);
+  text("Rx1", 102, 320);
+  text("Rx10", 208, 320);
+  text("Rx100", 312, 320);
+  text("Rx1K", 426, 320);
+  text("Rx10K", 530, 320);
+  text("Rx100K", 635, 320);
+  text("Rx1M", 750, 320);
+}
+
+void drawRef() {
+  line(70, 255, width-75, 255);
+  for (int i=70; i<width-75; i+=75) {
+    textSize(10);
+    text((i-70)/75, i-2, 277);
+    line(i, 245, i, 265);
+  }
+}
+
+void colorFirst() {
+  if (mouseX<146) {
+    d=0;
+    e=0;
+    f=0;
+  } else if (mouseX>147 && mouseX<222) {
+    d=75;
+    e=50;
+    f=25;
+    //brown
+  } else if (mouseX>221 && mouseX<297) {
+    d=255;
+    e=0;
+    f=0;
+    //red
+  } else if (mouseX>296 && mouseX<372) {
+    d=255;
+    e=125;
+    f=0;
+    //orange
+  } else if (mouseX>371 && mouseX<447) {
+    d=255;
+    e=255;
+    f=0;
+    //yellow
+  } else if (mouseX>446 && mouseX<522) {
+    d=0;
+    e=160;
+    f=0;
+    //green
+  } else if (mouseX>521 && mouseX<597) {
+    d=0;
+    e=50;
+    f=200;
+    //blue
+  } else if (mouseX>596 && mouseX<672) {
+    d=150;
+    e=100;
+    f=255;
+    //violet
+  } else if (mouseX>671 && mouseX<747) {
+    d=200;
+    e=200;
+    f=200;
+    //gray
+  } else if (mouseX>746 && mouseX<822) {
+    d=255;
+    e=255;
+    f=255;
+  } else {
+    d=0;
+    e=0;
+    f=0;
+  }
+}
+
+void colorSec() {
+  if (mouseX>147 && mouseX<155 || mouseX>221 && mouseX<230) {
+    g=0;
+    h=0;
+    j=0;
+    //black
+  } else if (mouseX>154 && mouseX<162 || mouseX>229 && mouseX<237) {
+    g=75;
+    h=50;
+    j=25;
+    //brown
+  } else if (mouseX>161 && mouseX<170 || mouseX>236 && mouseX<245) {
+    g=255;
+    h=0;
+    j=0;
+    //red
+  } else if (mouseX>169 && mouseX<177 || mouseX>244 && mouseX<252) {
+    g=255;
+    h=125;
+    j=0;
+    //orange
+  } else if (mouseX>176 && mouseX<185 || mouseX>251 && mouseX<260) {
+    g=255;
+    h=255;
+    j=0;
+    //yellow
+  } else if (mouseX>184 && mouseX<192 || mouseX>259 && mouseX<267) {
+    g=0;
+    h=200;
+    j=0;
+    //green
+  } else if (mouseX>191 && mouseX<200 || mouseX>266 && mouseX<275) {
+    g=0;
+    h=0;
+    j=255;
+    //blue
+  } else if (mouseX>199 && mouseX<207 || mouseX>274 && mouseX<282) {
+    g=150;
+    h=100;
+    j=255;
+    //violet
+  } else if (mouseX>206 && mouseX<215 || mouseX>281 && mouseX<290) {
+    g=200;
+    h=200;
+    j=200;
+    //gray
+  } else if (mouseX>214 && mouseX<222 || mouseX>289 && mouseX<297) {
+    g=255;
+    h=255;
+    j=255;
+  } else {
+    g=0;
+    h=0;
+    j=0;
+  }
+}  
+
+void mousePressed() {
+  for (int i=0; i<multButtons.length; i++) {
+    if (multButtons[0].hov) {
+      k=200;
+      l=170;
+      m=0;
+    } else if (multButtons[1].hov) {
+      k=200;
+      l=200;
+      m=200;
+    } else if (multButtons[2].hov) {
+      k=115;
+      l=75;
+      m=40;
+    } else if (multButtons[3].hov) {
+      rxVal=.01;
+      a=200;
+      b=170;
+      c=0;
+    } else if (multButtons[4].hov) {
+      rxVal=.1;
+      a=0;
+      b=0;
+      c=0;
+    } else if (multButtons[5].hov) {
+      rxVal=1;
+      a=75;
+      b=50;
+      c=25;
+    } else if (multButtons[6].hov) {
+      rxVal=10;
+      a=255;
+      b=0;
+      c=0;
+    } else if (multButtons[7].hov) {
+      rxVal=100;
+      a=255;
+      b=125;
+      c=0;
+    } else if (multButtons[8].hov) {
+      rxVal=1000;
+      a=255;
+      b=255;
+      c=0;
+    } else if (multButtons[9].hov) {
+      rxVal=10000;
+      a=0;
+      b=200;
+      c=0;
+    } else {
+      rxVal=1;
+    }
+  }
+}
