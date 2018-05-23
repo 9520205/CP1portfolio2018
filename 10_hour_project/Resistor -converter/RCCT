@@ -24,7 +24,7 @@ void setup() {
 void draw() {
   background(0, 150, 0);
   fill(50, 100, 200);
-  rect(36, 70, 825, 695);
+  rect(36, 70, 825, 395);
   textSize(25);
   fill(0);
   text("Resistor color-to-value table", 100, 42);
@@ -35,11 +35,11 @@ void draw() {
   text("physical look: ", 70, 110);
   text("tolerance: ", 730, 110);
   text("Actual Resistance: ", 70, 570);
-  text("ohms: " + int(((mouseX-72)*4/3)*rxVal), 70, 400);
-  text("pixel count " + (mouseX), 200, 400);
-  text("K ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000), 70, 430);
-  text("M ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000000), 70, 460);
-  text("Click any Rx button to start, then drag the bar to find your value", 260, 430);
+  text("ohms: " + int(((mouseX-72)*4/3)*rxVal), 70, 375);
+  //text("pixel count " + (mouseX), 200, 400); (this line is used for testing only)
+  text("K ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000), 70, 405);
+  text("M ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000000), 70, 435);
+  text("Click any Rx button to start, then drag the bar to find your value", 260, 405);
   rect(70, 240, mouseX-72, 10);
   fill(115, 75, 40);
   rect(310, 120, 170, 80);
