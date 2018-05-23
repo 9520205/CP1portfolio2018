@@ -34,7 +34,7 @@ void draw() {
   text("tolerance: ", 730, 110);
   text("Actual Resistance: ", 70, 570);
   text("ohms: " + int(((mouseX-72)*4/3)*rxVal), 70, 400);
-  //text("pixel count " + (mouseX), 200, 400);
+  text("pixel count " + (mouseX), 200, 400);
   text("K ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000), 70, 430);
   text("M ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000000), 70, 460);
   text("Click any Rx button to start, then drag the bar to find your value", 260, 430);
@@ -153,52 +153,52 @@ void colorFirst() {
 }
 
 void colorSec() {
-  if (mouseX>147 && mouseX<155 || mouseX>221 && mouseX<230) {
+  if (mouseX>147 && mouseX<155 || mouseX>221 && mouseX<230 || mouseX>296 && mouseX<305) {
     g=0;
     h=0;
     j=0;
     //black
-  } else if (mouseX>154 && mouseX<162 || mouseX>229 && mouseX<237) {
+  } else if (mouseX>154 && mouseX<162 || mouseX>229 && mouseX<237 || mouseX>304 && mouseX<312) {
     g=75;
     h=50;
     j=25;
     //brown
-  } else if (mouseX>161 && mouseX<170 || mouseX>236 && mouseX<245) {
+  } else if (mouseX>161 && mouseX<170 || mouseX>236 && mouseX<245 || mouseX>311 && mouseX<320) {
     g=255;
     h=0;
     j=0;
     //red
-  } else if (mouseX>169 && mouseX<177 || mouseX>244 && mouseX<252) {
+  } else if (mouseX>169 && mouseX<177 || mouseX>244 && mouseX<252 || mouseX>319 && mouseX<327) {
     g=255;
     h=125;
     j=0;
     //orange
-  } else if (mouseX>176 && mouseX<185 || mouseX>251 && mouseX<260) {
+  } else if (mouseX>176 && mouseX<185 || mouseX>251 && mouseX<260 || mouseX>326 && mouseX<335) {
     g=255;
     h=255;
     j=0;
     //yellow
-  } else if (mouseX>184 && mouseX<192 || mouseX>259 && mouseX<267) {
+  } else if (mouseX>184 && mouseX<192 || mouseX>259 && mouseX<267 || mouseX>334 && mouseX<342) {
     g=0;
     h=200;
     j=0;
     //green
-  } else if (mouseX>191 && mouseX<200 || mouseX>266 && mouseX<275) {
+  } else if (mouseX>191 && mouseX<200 || mouseX>266 && mouseX<275 || mouseX>341 && mouseX<350) {
     g=0;
     h=0;
     j=255;
     //blue
-  } else if (mouseX>199 && mouseX<207 || mouseX>274 && mouseX<282) {
+  } else if (mouseX>199 && mouseX<207 || mouseX>274 && mouseX<282 || mouseX>349 && mouseX<357) {
     g=150;
     h=100;
     j=255;
     //violet
-  } else if (mouseX>206 && mouseX<215 || mouseX>281 && mouseX<290) {
+  } else if (mouseX>206 && mouseX<215 || mouseX>281 && mouseX<290 || mouseX>356 && mouseX<365) {
     g=200;
     h=200;
     j=200;
     //gray
-  } else if (mouseX>214 && mouseX<222 || mouseX>289 && mouseX<297) {
+  } else if (mouseX>214 && mouseX<222 || mouseX>289 && mouseX<297 || mouseX>364 && mouseX<372) {
     g=255;
     h=255;
     j=255;
