@@ -1,4 +1,6 @@
-*THIS IS UNFINISHED
+*THIS IS UNFINISHED, you can get an idea of what the program is supposed to do, but changing the color of the second band in
+in the method colorSec was going to take a LOT more coding than it probably should. I know what to do, I just feel like there 
+is an easier way to do this, and thus I am not finishing the colorSec method.
 
 Button[] multButtons = new Button[10];
 int a, b, c, d, e, f, g, h, j, k, l, m; 
