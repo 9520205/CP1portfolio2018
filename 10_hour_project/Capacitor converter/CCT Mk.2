@@ -1,58 +1,292 @@
-*THIS IS UNFINISHED
+*THIS IS UNFINISHED. I am just heavily modifying the resistor color code to make this, but it still has a ways to go.
 
-Button[] buttons = new Button[6];
+Button[] multButtons = new Button[7];
+int a, b, c, d, e, f, g, h, j, k, l, m, n, p, q; 
+float rxVal, pfVal, nfVal, ufVal;
 
 void setup() {
-  size(650,650);
-  background(0,150,0);
-  
-  buttons[0] = new Button(75,140,50,40) .asValue(101);
-  buttons[1] = new Button(135,140,50,40) .asValue(221);
-  buttons[2] = new Button(195,140,50,40) .asValue(331);
-  buttons[3] = new Button(255,140,50,40) .asValue(471);
-  buttons[4] = new Button(315,140,50,40) .asValue(681);
-  buttons[5] = new Button(375,140,50,40) .asValue(102);
-  
+  size(896, 500);
+  multButtons[0] = new Button(720, 125, 100, 20, 5);
+  multButtons[1] = new Button(720, 155, 100, 20, 5);
+  multButtons[2] = new Button(720, 185, 100, 20, 5);
+  multButtons[3] = new Button(70, 200, 95, 30, 5);
+  multButtons[4] = new Button(210, 200, 95, 30, 5);
+  multButtons[5] = new Button(350, 200, 95, 30, 5);
+  multButtons[6] = new Button(210, 250, 95, 30, 5);
+  rxVal=0;
 }
 
 void draw() {
-  background(0,150,0);
-  fill(255);
-  rect(36,70,575,537);
-  textSize(22);
+  background(0, 150, 0);
+  fill(50, 100, 200);
+  rect(36, 70, 825, 395);
+  textSize(25);
   fill(0);
-  text("Cap. Converter table-reading modern capacitors", 70,42);
+  text("Mica domino cap. reading table", 100, 42);
+  drawRef();
+  colorFirst();
+  colorSec();
   textSize(15);
-  text("Modern 3-digit value: ", 240,110);
-  text("Actual Capacitance: ", 250,370);
-  //text("   Microfarads- " + int((mouseX-72)/400),70,400);
-  //text("   Nanofarads- " + int((mouseX-72)/100),70,430);
-  //text("   Picofarads- " + int(pConverter(mouseX-72)),70,460);
-  println(pConverter(60.0));
-  println(fConverter(60.0));
-     buttons[0].display();
-     buttons[0].hover();
-     buttons[1].display();
-     buttons[1].hover();
-     buttons[2].display();
-     buttons[2].hover();
-     buttons[3].display();
-     buttons[3].hover();
-     buttons[4].display();
-     buttons[4].hover();
-     buttons[5].display();
-     buttons[5].hover();
+  text("RMA 1948: ", 617, 110);
+  text("RMA 6-dot: ", 617, 210);
+  text("RMA 3-dot: ", 617, 310);
+  //text("tolerance: ", 730, 110);
+  text("picofarads: " + pfVal, 70, 375);
+  //text("pixel count " + (mouseX), 300, 400);
+  text("nanofarads- " + nfVal, 70, 405);
+  //text("Click any Cx button to start, then drag the bar to find your value", 260, 405);
+  if (mouseX>442) {
+    rect(70, 130, 371, 10);
+    pfVal = rxVal*1000;
+    nfVal = rxVal;
+    ufVal = rxVal*.001;
+  } else {
+    rect(70, 130, mouseX-72, 10);
+    pfVal = int(((mouseX-72)*2.705)*rxVal);
+    nfVal = int((((mouseX-72)*2.705)*rxVal)/1000);
+    ufVal = int((((mouseX-72)*2.705)*rxVal)/1000000);
+  }
+  fill(115, 75, 40);
+  rect(620, 120, 75, 50);
+  rect(620, 220, 75, 50);
+  rect(620, 320, 75, 50);
+
+  fill(200);
+  noStroke();
+  rect(520, 143, 100, 3);
+  rect(696, 143, 100, 3);
+  rect(520, 243, 100, 3);
+  rect(696, 243, 100, 3);
+  rect(520, 343, 100, 3);
+  rect(696, 343, 100, 3);
+
+  stroke(80, 40, 5);
+  fill(255);
+  ellipse(635, 135, 13, 13);
+
+  fill(d, e, f);
+  ellipse(658, 135, 13, 13);
+  ellipse(658, 235, 13, 13);
+  ellipse(635, 355, 13, 13);
+
+  fill(g, h, j);
+  ellipse(681, 135, 13, 13);
+  ellipse(681, 235, 13, 13);
+  ellipse(658, 355, 13, 13);
+
+  fill(115, 75, 40);
+  ellipse(635, 155, 13, 13);
+
+  fill(200);
+  ellipse(658, 155, 13, 13);
+
+  fill(a, b, c);
+  ellipse(681, 155, 13, 13);
+  ellipse(635, 235, 13, 13);
+  ellipse(681, 355, 13, 13);
+  
+  fill(n, p, q);
+  ellipse(681, 255, 13, 13);
+
+  stroke(0);
+  // multButtons[0].display();
+  //multButtons[0].hover();
+  //multButtons[1].display();
+  //multButtons[1].hover();
+  //multButtons[2].display();
+  //multButtons[2].hover();
+  multButtons[3].display();
+  multButtons[3].hover();
+  multButtons[4].display();
+  multButtons[4].hover();
+  multButtons[5].display();
+  multButtons[5].hover();
+  multButtons[6].display();
+  multButtons[6].hover();
+
   fill(0);
-  text("101", 87,165);
-  text("221", 146,165);
+  //text("5%", 760, 140);
+  //text("10%", 755, 170);
+  //text("20%", 755, 200);
+  text("Cx1 (pf)", 88, 220);
+  text("Cx10 (pf)", 222, 220);
+  text("Cx100 (pf)", 360, 220);
+  text("Cx1K (nf)", 224, 270);
 }
 
-float pConverter(float val) {
-     val = (val*10)+100;
-     return val;
+void drawRef() {
+  line(70, 141, width-455, 141);
+  for (int i=70; i<width-450; i+=37) {
+    textSize(10);
+    text((i-70)/37, i-2, 163);
+    line(i, 131, i, 151);
+  }
 }
 
-float fConverter(float val) {
-  val = val * (9.0/5.0) +32;
-  return val;
+void colorFirst() {
+  if (mouseX<109) {
+    d=0;
+    e=0;
+    f=0;
+  } else if (mouseX>108 && mouseX<146) {
+    d=75;
+    e=50;
+    f=25;
+    //brown
+  } else if (mouseX>145 && mouseX<183) {
+    d=255;
+    e=0;
+    f=0;
+    //red
+  } else if (mouseX>182 && mouseX<220) {
+    d=255;
+    e=125;
+    f=0;
+    //orange
+  } else if (mouseX>219 && mouseX<257) {
+    d=255;
+    e=255;
+    f=0;
+    //yellow
+  } else if (mouseX>256 && mouseX<294) {
+    d=0;
+    e=160;
+    f=0;
+    //green
+  } else if (mouseX>293 && mouseX<331) {
+    d=0;
+    e=50;
+    f=200;
+    //blue
+  } else if (mouseX>330 && mouseX<368) {
+    d=150;
+    e=100;
+    f=255;
+    //violet
+  } else if (mouseX>367 && mouseX<405) {
+    d=200;
+    e=200;
+    f=200;
+    //gray
+  } else if (mouseX>404 && mouseX<442) {
+    d=255;
+    e=255;
+    f=255;
+  } else {
+    d=0;
+    e=0;
+    f=0;
+  }
+}
+
+void colorSec() {
+  if (mouseX>147 && mouseX<155 || mouseX>221 && mouseX<230 || mouseX>296 && mouseX<305) {
+    g=0;
+    h=0;
+    j=0;
+    //black
+  } else if (mouseX>154 && mouseX<162 || mouseX>229 && mouseX<237 || mouseX>304 && mouseX<312) {
+    g=75;
+    h=50;
+    j=25;
+    //brown
+  } else if (mouseX>161 && mouseX<170 || mouseX>236 && mouseX<245 || mouseX>311 && mouseX<320) {
+    g=255;
+    h=0;
+    j=0;
+    //red
+  } else if (mouseX>169 && mouseX<177 || mouseX>244 && mouseX<252 || mouseX>319 && mouseX<327) {
+    g=255;
+    h=125;
+    j=0;
+    //orange
+  } else if (mouseX>176 && mouseX<185 || mouseX>251 && mouseX<260 || mouseX>326 && mouseX<335) {
+    g=255;
+    h=255;
+    j=0;
+    //yellow
+  } else if (mouseX>184 && mouseX<192 || mouseX>259 && mouseX<267 || mouseX>334 && mouseX<342) {
+    g=0;
+    h=200;
+    j=0;
+    //green
+  } else if (mouseX>191 && mouseX<200 || mouseX>266 && mouseX<275 || mouseX>341 && mouseX<350) {
+    g=0;
+    h=0;
+    j=255;
+    //blue
+  } else if (mouseX>199 && mouseX<207 || mouseX>274 && mouseX<282 || mouseX>349 && mouseX<357) {
+    g=150;
+    h=100;
+    j=255;
+    //violet
+  } else if (mouseX>206 && mouseX<215 || mouseX>281 && mouseX<290 || mouseX>356 && mouseX<365) {
+    g=200;
+    h=200;
+    j=200;
+    //gray
+  } else if (mouseX>214 && mouseX<222 || mouseX>289 && mouseX<297 || mouseX>364 && mouseX<372) {
+    g=255;
+    h=255;
+    j=255;
+  } else {
+    g=0;
+    h=0;
+    j=0;
+  }
+}  
+
+void mousePressed() {
+  for (int i=0; i<multButtons.length; i++) {
+    if (multButtons[0].hov) {
+      k=200;
+      l=170;
+      m=0;
+    } else if (multButtons[1].hov) {
+      k=200;
+      l=200;
+      m=200;
+    } else if (multButtons[2].hov) {
+      k=115;
+      l=75;
+      m=40;
+    } else if (multButtons[3].hov) {
+      rxVal=.01;
+      a=0;
+      b=0;
+      c=0;
+    } else if (multButtons[4].hov) {
+      rxVal=.1;
+      a=75;
+      b=50;
+      c=25;
+    } else if (multButtons[5].hov) {
+      rxVal=1;
+      a=255;
+      b=0;
+      c=0;
+    } else if (multButtons[6].hov) {
+      rxVal=10;
+      a=255;
+      b=125;
+      c=0;
+    } else if (multButtons[7].hov) {
+      rxVal=100;
+      a=255;
+      b=125;
+      c=0;
+    } else if (multButtons[8].hov) {
+      rxVal=1000;
+      a=255;
+      b=255;
+      c=0;
+    } else if (multButtons[9].hov) {
+      rxVal=10000;
+      a=0;
+      b=200;
+      c=0;
+    } else {
+      rxVal=1;
+    }
+  }
 }
