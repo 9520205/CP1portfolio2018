@@ -11,11 +11,11 @@ void draw() {
   ellipse(width/2,height/2,random(280,380),random(300,400));
   //this draws the eyes
   fill(255);
-  ellipse(180,180,random(40,100),random(40,100));
-  ellipse(310,180,random(40,100),random(40,100));
+  ellipse(180,180,random(60,100),random(60,100));
+  ellipse(310,180,random(60,100),random(60,100));
   fill(0);
-  ellipse(180,180,random(5,50),random(5,50));
-  ellipse(310,180,random(5,50),random(5,50));
+  ellipse(180,180,random(25,50),random(25,50));
+  ellipse(310,180,random(25,50),random(25,50));
   //this draws the nose
   fill(230,195,160);
   triangle(245,random(200,250),225,300,random(250,300),300);
