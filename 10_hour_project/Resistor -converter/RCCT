@@ -36,7 +36,8 @@ void draw() {
   text("tolerance: ", 730, 110);
   text("Actual Resistance: ", 70, 570);
   text("ohms: " + int(((mouseX-72)*4/3)*rxVal), 70, 375);
-  //text("pixel count " + (mouseX), 200, 400); (this line is used for testing only)
+  // the following line is used for testing only:
+  //text("pixel count " + (mouseX), 200, 400); 
   text("K ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000), 70, 405);
   text("M ohms- " + int((((mouseX-72)*4/3)*rxVal)/1000000), 70, 435);
   text("Click any Rx button to start, then drag the bar to find your value", 260, 405);
