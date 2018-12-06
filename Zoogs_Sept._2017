@@ -16,10 +16,11 @@ void draw() {
   rect(mouseY,mouseX,20,100);
   
   // head
-  stroke(0);
   fill(0,125,0);
   ellipse(mouseX,mouseY,60,60);
   ellipse(mouseY,mouseX,60,60);
+  ellipse(mouseY, mouseX, 60, 60);
+  ellipse(mouseY, mouseX, 60, 60);
   
   // eyes
   fill(255,0,0);
